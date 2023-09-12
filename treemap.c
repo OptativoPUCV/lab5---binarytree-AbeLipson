@@ -80,14 +80,16 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
     TreeNode *current = tree->root;
     
     while(current!=NULL){
-        if(key > tree->current->pair->key){
+        int cmp_result = tree->lower_than(key, current->pair->key);
+
+        if(cmp_result > 0){
             current = current->right;
         }
-        else if(key < tree->current->pair->key){
-            current = current->left;
-        }
-        else if(key == tree->current->pair->key){
+        else if(cmp_result == 0){
             return current->pair;
+        }
+        else{
+            current = current->left;
         }
     }
     return NULL;
