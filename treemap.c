@@ -86,6 +86,7 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
             current = current->right;
         }
         else if(cmp_result == 0){
+            tree->current = current;
             return current->pair;
         }
         else{
