@@ -201,7 +201,7 @@ Pair * firstTreeMap(TreeMap * tree) {
     while(currentMin->left !=NULL){
         currentMin = currentMin->left;
     }
-    return currentMin;
+    return currentMin->pair;
     
 }
 
