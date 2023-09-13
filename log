@@ -97,3 +97,9 @@ Tue, Sep 12, 2023  9:40:26 PM:
  1 file changed, 2 insertions(+), 2 deletions(-)
  tests:  0|0
 98d3de2
+Tue, Sep 12, 2023  9:43:04 PM: 
+ treemap.c | 65 ++-------------------------------------------------------------
+ 1 file changed, 2 insertions(+), 63 deletions(-)
+ tests:  15|4
+total_score: 25/70
+0b05f86
