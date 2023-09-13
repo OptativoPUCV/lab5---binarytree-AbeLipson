@@ -94,50 +94,68 @@ TreeNode * minimum(TreeNode * x){
 }
 
 
-void removeNode(TreeMap * tree, TreeNode* node) {
-    if (node->left == NULL && node->right == NULL) {
+void removeNode(TreeMap * tree, TreeNode* node){
+    if(node->left == NULL && node->right == NULL){
         
-        if (node->parent != NULL) {
-            if (node->parent->left == node) {
-                node->parent->left = NULL;
-            } else {
-                node->parent->right = NULL;
+        if (node->parent!=NULL) {
+            if(node->parent->left==node){
+                node->parent->left =NULL;
+            } 
+            else{
+                node->parent->right=NULL;
             }
-        } else {
-            
+        } 
+        else{
             tree->root = NULL;
         }
         free(node->pair);
         free(node);
     }
-    else if (node->left != NULL && node->right == NULL) {
+    else if(node->left != NULL && node->right == NULL){
         TreeNode * child = node->left;
-        if (node->parent != NULL) {
-            if (node->parent->left == node) {
+        if(node->parent != NULL){
+            if(node->parent->left==node){
                 node->parent->left = child;
-            } else {
+            } 
+            else{
                 node->parent->right = child;
             }
-        } else {
+        } 
+        else{
             tree->root = child;
         }
         child->parent = node->parent;
         free(node->pair);
         free(node);
-    } else if (node->left == NULL && node->right != NULL) {
+    } 
+    else if(node->left == NULL && node->right != NULL){
         TreeNode * child = node->right;
-        if (node->parent != NULL) {
-            if (node->parent->left == node) {
+        if(node->parent != NULL){
+            if(node->parent->left == node){
                 node->parent->left = child;
-            } else {
+            } 
+            else{
                 node->parent->right = child;
             }
-        } else {
+        } 
+        else{
             tree->root = child;
         }
         child->parent = node->parent;
         free(node->pair);
         free(node);
+    }
+    else{
+        TreeNode *next = node->right;
+        while(next->left != NULL){
+            next = next->left;
+        }
+        TreeNode *placehold = next;
+        removeTreeNode(tree,next);
+        node->pair = placehold->pair;
+
+        free(placehold->pair);
+        free(placehold);
     }
 }
 
