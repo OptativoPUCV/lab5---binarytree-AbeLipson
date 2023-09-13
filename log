@@ -126,3 +126,9 @@ treemap.c:154:9: error: implicit declaration of function 'removeTreeNode' [-Werr
 cc1.exe: all warnings being treated as errors
 Compilation failed
 efc109f
+Tue, Sep 12, 2023 10:14:04 PM: 
+ treemap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  18|3
+total_score: 40/70
+c5f877b

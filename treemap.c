@@ -151,7 +151,7 @@ void removeNode(TreeMap * tree, TreeNode* node){
             next = next->left;
         }
         TreeNode *placehold = next;
-        removeTreeNode(tree,next);
+        removeNode(tree,next);
         node->pair = placehold->pair;
 
         free(placehold->pair);
