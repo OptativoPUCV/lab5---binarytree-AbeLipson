@@ -197,11 +197,8 @@ Pair * upperBound(TreeMap * tree, void* key) {
 }
 
 Pair * firstTreeMap(TreeMap * tree) {
-    TreeNode *currentMin = tree->root;
-    while(currentMin->left !=NULL){
-        currentMin = currentMin->left;
-    }
-    return currentMin->pair;
+    
+    return minimum(tree->root)->pair;
     
 }
 
