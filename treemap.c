@@ -204,7 +204,7 @@ Pair * firstTreeMap(TreeMap * tree) {
 
 Pair * nextTreeMap(TreeMap * tree) {
     TreeNode *current = tree->current;
-
+if(current !=NULL){
     if(current->right != NULL){
         current = current->right;
         while(current->left !=NULL){
@@ -222,6 +222,10 @@ Pair * nextTreeMap(TreeMap * tree) {
     else{
         current = NULL;
     }
-    tree->current = current;
+     tree->current = current;
     return current->pair;
+}
+    else{
+        return NULL;
+    }
 }
