@@ -214,7 +214,7 @@ Pair * nextTreeMap(TreeMap * tree) {
     else if (current->right ==NULL && current->parent!=NULL){
         current = current->parent;
     }
-    else{
+    else{ //current must be root
         current = NULL;
     }
     tree->current = current;
