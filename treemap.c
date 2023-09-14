@@ -201,13 +201,22 @@ Pair * upperBound(TreeMap * tree, void* key) {
         }
 
         int cmp_result = tree->lower_than(current->pair->key,key);
-        if(cmp_result ==1 ){
+        if(cmp_result ==1 && current->right !=NULL){
             current = current->right;
         }
         
+        else if(cmp_result ==1 && current->right ==NULL){
+            return current->pair;
+        }
+
+        else if(cmp_result !=1 && current->left !=NULL){
+            current=current->left;
+        }
+
         else{
             return current->pair;
         }
+
     }
 
     return NULL;
