@@ -211,11 +211,11 @@ Pair * nextTreeMap(TreeMap * tree) {
             current = current->left;
         }
     }
-    else if (current->right ==NULL && current->left==NULL){
-        current = NULL;
-    }
-    else{ //current must be root
+    else if (current->right ==NULL && current->parent!=NULL){
         current = current->parent;
+    }
+    else{ //current must
+        current = NULL;
     }
     tree->current = current;
     return current->pair;
