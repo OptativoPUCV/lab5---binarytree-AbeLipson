@@ -219,6 +219,9 @@ Pair * nextTreeMap(TreeMap * tree) {
             current = NULL;
         }
     }
+    else{
+        current = NULL;
+    }
     tree->current = current;
     return current->pair;
 }
