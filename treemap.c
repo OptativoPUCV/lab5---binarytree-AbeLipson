@@ -196,7 +196,7 @@ Pair * upperBound(TreeMap * tree, void* key) {
     TreeNode *current = tree->root;
     Pair *upBound = NULL;
     while(current!=NULL){
-        int cmp_result = tree->lower_than(key,current->pair->key);
+        int cmp_result = tree->lower_than(current->pair->key,key);
         if(is_equal(tree,key,current->pair->key)){
             upBound = current->pair;
             current=current->right;
