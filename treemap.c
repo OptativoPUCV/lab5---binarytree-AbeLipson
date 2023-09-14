@@ -211,7 +211,7 @@ Pair * nextTreeMap(TreeMap * tree) {
             current = current->left;
         }
     }
-    else if (current->right ==NULL){
+    else if (current->right ==NULL && current->left==NULL){
         if(current->parent == NULL || current->parent->left != current){
             current = NULL;
         }
@@ -219,7 +219,9 @@ Pair * nextTreeMap(TreeMap * tree) {
             current = current->parent;
         }
     }
-   
+    else{
+        current = NULL;
+    }
     tree->current = current;
     return current->pair;
 }
