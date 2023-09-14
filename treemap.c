@@ -193,6 +193,22 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
 
 
 Pair * upperBound(TreeMap * tree, void* key) {
+    TreeNode *current = tree->root;
+    while(current!=NULL){
+        int cmp_result = tree->lower_than(current->right->pair->key,key);
+
+        if(is_equal(tree,key,current->pair->key)){
+            tree->current = current;
+            return current->pair;
+        }
+        else if(cmp_result ==1 ){
+            current = current->right;
+        }
+        else{
+            return current->pair;
+        }
+    }
+
     return NULL;
 }
 
@@ -213,7 +229,7 @@ Pair * nextTreeMap(TreeMap * tree) {
             current = current->left;
         }
     }
-    else{ //if there is not a right subtree
+    else{ 
         while(current->parent != NULL && current->parent->right == current){
             current = current->parent;
         }
