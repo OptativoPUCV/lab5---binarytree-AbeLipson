@@ -195,15 +195,16 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
 Pair * upperBound(TreeMap * tree, void* key) {
     TreeNode *current = tree->root;
     while(current!=NULL){
-        int cmp_result = tree->lower_than(current->right->pair->key,key);
-
         if(is_equal(tree,key,current->pair->key)){
             tree->current = current;
             return current->pair;
         }
-        else if(cmp_result ==1 ){
+
+        int cmp_result = tree->lower_than(current->pair->key,key);
+        if(cmp_result ==1 ){
             current = current->right;
         }
+        
         else{
             return current->pair;
         }
