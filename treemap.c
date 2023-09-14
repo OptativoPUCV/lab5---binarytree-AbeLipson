@@ -201,6 +201,10 @@ Pair * upperBound(TreeMap * tree, void* key) {
             upBound = current->pair;
             current = current->left;
         }
+        else if(is_equal(tree,key,current->pair->key)){
+            upBound = current->pair;
+            current = current->left;
+        }
         else{
             current = current->right;
         }
