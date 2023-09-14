@@ -214,13 +214,12 @@ Pair * nextTreeMap(TreeMap * tree) {
         }
     }
     else{ //if there is not a right subtree
-        if(current->parent != NULL || current->parent->left == current){
+        while(current->parent != NULL && current->parent->right == current){
             current = current->parent;
         }
-        else{
-            current = NULL;
+            current = current->parent;
         }
-    }
+    
 
     tree->current = current;
     if(current!=NULL){
