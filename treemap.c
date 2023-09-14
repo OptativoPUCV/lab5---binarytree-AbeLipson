@@ -214,19 +214,21 @@ else{
             current = current->left;
         }
     }
-    else if (current->right ==NULL && current->left==NULL){
-        if(current->parent == NULL || current->parent->left != current){
-            current = NULL;
-        }
-        else if(current->parent->left == current){
+    else{ //if there is not a right subtree
+        if(current->parent != NULL || current->parent->left == current){
             current = current->parent;
         }
-    }
-    else{
-        current = NULL;
+        else{
+            current = NULL;
+        }
     }
 
     tree->current = current;
-    return current->pair;
+    if(current!=NULL){
+        return current->pair;
+    }
+    else{
+        return NULL;
+    }
 }
 }
